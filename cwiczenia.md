@@ -12,7 +12,10 @@ Login: admin
 Hasło: Infoshare%%14.05
 Nazwa: admin
 Email: admin@local
+
 nowa linia
+nowa linia 2
+
 ## Instalacja plugina, zmiana języka
 Zmiana języka interfejsu Jenkinsa możliwa jest poprzez plugin. W celu instalacji pluginu przejdź do Zarządzanie Jenkinsem > Zarządzaj wtyczkami > Dostępne i wyszukaj wtyczkę o nazwie Locale.
 Zapoznaj się z opisem wtyczki klikając w nazwę wngrokyszukanej pozycji.
