@@ -1,0 +1,30 @@
+pipeline {
+    agent {
+        label 'ubuntu'
+    }
+    tools {
+        maven 'maven-apache-3.8.4' 
+    }
+    stages {
+        stage('Build') {
+            steps {
+                sh 'mvn -B -DskipTests clean package'
+            }
+        }
+        stage('Test') {
+            steps {
+                sh 'mvn test'
+            }
+            post {
+                always {
+                    junit 'target/surefire-reports/*.xml'
+                }
+            }
+        }
+        stage('Deliver') {
+            steps {
+                archiveArtifacts artifacts: '**/*.jar'
+            }
+        }
+    }
+}

@@ -1,0 +1,35 @@
+pipeline {
+  agent {
+     node { 
+        label 'node01'
+     } 
+  }
+  tools {
+    maven 'maven-apache-3.8.4'
+  }
+  environment {
+      MVN_WORKDIR = 'java-app'
+  }
+  stages {
+    stage('Maven Package') {
+      steps {
+        dir('java-app'){
+          sh 'mvn package'
+        }
+      }
+    }
+    stage('Run') {
+      steps {
+        sh 'java -jar $MVN_WORKDIR/target/my-app-1.0-SNAPSHOT.jar'
+      }
+    }
+  }
+  post {
+    always {
+      dir('java-app'){
+        step($class: 'JUnitResultArchiver', checksName: '', testResults: '**/surefire-reports/TEST-*.xml')
+        step(followSymlinks: false, $class: 'ArtifactArchiver', artifacts: 'target/*.jar')
+      }
+    }
+  }
+}
