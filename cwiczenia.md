@@ -16,6 +16,8 @@ Email: admin@local
 nowa linia
 nowa linia 2
 
+nowa linia3
+
 ## Instalacja plugina, zmiana języka
 Zmiana języka interfejsu Jenkinsa możliwa jest poprzez plugin. W celu instalacji pluginu przejdź do Zarządzanie Jenkinsem > Zarządzaj wtyczkami > Dostępne i wyszukaj wtyczkę o nazwie Locale.
 Zapoznaj się z opisem wtyczki klikając w nazwę wngrokyszukanej pozycji.
