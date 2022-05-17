@@ -99,6 +99,7 @@ trigger4
 trigger 5
 trigger6
 trigger7
+teriger8 
 
 ## 03 - Dodawanie node'a
 Cel: chcemy, aby joby nie były puszczane na wbudowanym, domyślnym nodzie, tylko na dedykowanym, przez nas skonfigurowanym nodzie
