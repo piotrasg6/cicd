@@ -13,8 +13,7 @@ Hasło: Infoshare%%14.05
 Nazwa: admin
 Email: admin@local
 
-nowa linia
-nowa linia 2
+
 
 ## Instalacja plugina, zmiana języka
 Zmiana języka interfejsu Jenkinsa możliwa jest poprzez plugin. W celu instalacji pluginu przejdź do Zarządzanie Jenkinsem > Zarządzaj wtyczkami > Dostępne i wyszukaj wtyczkę o nazwie Locale.
@@ -92,6 +91,14 @@ Dodaj Post-build Actions:
 - Publish JUnit test result report: **/surefire-reports/TEST-*.xml
 - Archive the artifacts: java-app/target/*.jar
 Wykonaj zmianę na branch’u github-integration. Kilka sekund później powinien zostać uruchomiony automatycznie nowy build, który zbuduje, puści testy, uruchomi aplikację i opublikuje artefakty.
+
+trigger1
+trigger2
+trigger3
+
+
+
+
 
 ## 03 - Dodawanie node'a
 Cel: chcemy, aby joby nie były puszczane na wbudowanym, domyślnym nodzie, tylko na dedykowanym, przez nas skonfigurowanym nodzie
