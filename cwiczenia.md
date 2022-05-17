@@ -95,8 +95,7 @@ Wykonaj zmianę na branch’u github-integration. Kilka sekund później powinie
 trigger1
 trigger2
 trigger3
-trigger4
-trigger 5
+
 
 
 
