@@ -92,6 +92,8 @@ Dodaj Post-build Actions:
 - Archive the artifacts: java-app/target/*.jar
 Wykonaj zmianę na branch’u github-integration. Kilka sekund później powinien zostać uruchomiony automatycznie nowy build, który zbuduje, puści testy, uruchomi aplikację i opublikuje artefakty.
 
+trigger1
+
 ## 03 - Dodawanie node'a
 Cel: chcemy, aby joby nie były puszczane na wbudowanym, domyślnym nodzie, tylko na dedykowanym, przez nas skonfigurowanym nodzie
 
