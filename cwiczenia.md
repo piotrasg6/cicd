@@ -97,11 +97,8 @@ trigger2
 trigger3
 trigger4
 trigger 5
-trigger6
-trigger7
-teriger8 
 
-test1
+
 
 
 ## 03 - Dodawanie node'a
