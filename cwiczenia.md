@@ -95,6 +95,7 @@ Wykonaj zmianę na branch’u github-integration. Kilka sekund później powinie
 trigger1
 trigger2
 trigger3
+trigger4
 
 ## 03 - Dodawanie node'a
 Cel: chcemy, aby joby nie były puszczane na wbudowanym, domyślnym nodzie, tylko na dedykowanym, przez nas skonfigurowanym nodzie
