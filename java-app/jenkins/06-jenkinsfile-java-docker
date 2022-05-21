@@ -1,0 +1,36 @@
+pipeline {
+    agent {
+        docker {
+            image 'maven:3.6.1-alpine'
+            args '-v /root/.m2:/root/.m2' //caching
+            label 'node2'
+        }
+    }
+    environment { 
+        HOME = "${WORKSPACE}/java-app"
+    }
+    stages {
+        stage('Build') {
+            steps {
+                sh 'cd $HOME && mvn -B -DskipTests clean package'
+            }
+        }
+        stage('Test') {
+            steps {
+                sh 'cd $HOME && mvn test'
+            }
+            post {
+                always {
+                    junit '**/surefire-reports/TEST-*.xml'
+                }
+            }
+        }
+        stage('Deliver') {
+            steps {
+                archiveArtifacts artifacts: '**/*.jar'
+            }
+        }
+        stage('Run') {
+            steps {
+                sh 'cd $HOME && java -jar target/my-app-1.0-SNAPSHOT.jar'
+            }

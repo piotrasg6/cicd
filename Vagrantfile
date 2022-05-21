@@ -7,7 +7,7 @@ Vagrant.configure("2") do |config|
   config.vm.define "node" do |node|
     node.vm.hostname = "node"
     node.vm.network "private_network", ip: "10.0.0.20"
-    
+    node.vm.provision "shell", path: "./.vagrant-provision/provision-node-docker.sh"
     node.vm.provider "virtualbox" do |vb|
       vb.name = "node"
       vb.cpus = "1"
