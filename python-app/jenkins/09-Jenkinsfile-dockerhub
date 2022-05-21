@@ -1,0 +1,35 @@
+pipeline {
+    agent {
+        node { 
+            label 'node01'
+        } 
+    }
+    environment {
+		DOCKERHUB_CREDENTIALS=credentials('dockerhub')
+        REGISTRY_NAME='sample09/python-app-info'
+	}
+
+    stages {
+        stage('Build') {
+            steps {
+                dir('python-app') {
+                    sh 'docker build -t $REGISTRY_NAME:$BUILD_NUMBER .'
+                    //sh 'docker save python-app:$BUILD_NUMBER > python-app.image'
+                } 
+            }
+        }
+        stage('Push') {
+            steps {
+                dir('python-app') {
+                    sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+                    sh 'docker push $REGISTRY_NAME:$BUILD_NUMBER'
+                }  
+            }
+        }
+    }
+	post {
+		always {
+			sh 'docker logout'
+		}
+	}
+}
