@@ -1,0 +1,29 @@
+pipeline {
+    agent {
+        docker {
+            image 'python:3.9-alpine'
+            label 'node01'
+        }
+    }
+    stages {
+        stage('Run') {
+            environment { 
+                HOME = "${WORKSPACE}/python-app"
+            }
+            steps {
+                dir('python-app/'){
+                    sh 'pip install -r requirements.txt'
+                    sh 'python3 -m flask run --host=0.0.0.0 &'
+                }
+            }
+        }
+        stage('Test') {
+            steps {
+                retry(5) {
+                    //sleep time: 1, unit: 'SECONDS'
+                    sh 'wget -O- $(hostname):5000'
+                }
+            }
+        }
+    }
+}
