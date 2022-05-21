@@ -6,7 +6,7 @@ pipeline {
     }
     environment {
 		DOCKERHUB_CREDENTIALS=credentials('dockerhub')
-        REGISTRY_NAME='sample09/python-app-info'
+        REGISTRY_NAME='legionista66/sample09'
 	}
 
     stages {
