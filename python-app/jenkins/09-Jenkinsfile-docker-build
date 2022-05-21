@@ -1,0 +1,26 @@
+pipeline {
+    agent {
+        node { 
+            label 'node2'
+        } 
+    }
+    stages {
+        stage('Build') {
+            steps {
+                dir('python-app') {
+                    sh 'docker build -t python-app:$BUILD_NUMBER .'
+                    sh 'docker save python-app:$BUILD_NUMBER > python-app.image'
+                }
+                
+            }
+        }
+    }
+    post {
+        success {
+            archiveArtifacts 'python-app/python-app.image'
+        }
+        cleanup {
+            cleanWs()
+        }
+    }
+}
